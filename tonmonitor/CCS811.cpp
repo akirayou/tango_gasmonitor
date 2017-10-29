@@ -173,8 +173,8 @@ void CCS811::getData(void)
       //Serial.print(buffer[i]);
     }
   }
-  CO2 = ((uint8_t)buffer[0] << 8) + buffer[1];
-  TVOC = ((uint8_t)buffer[2] << 8) + buffer[3];
+  CO2 =(unsigned int) buffer[0] *256+ buffer[1];
+  TVOC =(unsigned int) buffer[2] *256 + buffer[3];
 
   digitalWrite(_WAKE_PIN, HIGH);
 }

@@ -25,25 +25,27 @@ void loop() {
   
   
   unsigned long now=millis();
-  if(now-lastacc>500){
+  if(now-lastacc>250){
     lastacc=now;
     sensor.getData();
     voc=sensor.readTVOC();
-    co2=sensor.readTVOC();
+    co2=sensor.readCO2();
 
     /*
     Serial.print(voc);
     Serial.print(" ");
     Serial.println(co2); 
-    Serial.println(sensor.readHW_ID());*/
+    Serial.println(sensor.readHW_ID());
+    */
     count++;
  
   }
 
   //dummpy voc for test
+/*
   voc=count%118;
   voc*=10;
-    
+  */  
   //voc to code
   unsigned int code=voc;
   if(code>1000)code=1000;
@@ -54,7 +56,7 @@ void loop() {
      lastclick=mnow;
   
     digitalWrite(BUZ,HIGH);
-    delayMicroseconds(20az);
+    delayMicroseconds(20);
     digitalWrite(BUZ,LOW);    
   }
   

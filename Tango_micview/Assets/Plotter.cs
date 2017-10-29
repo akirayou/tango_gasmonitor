@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Plotter : MonoBehaviour {
-    private float timeOut = 1;
+    private float timeOut = 0.8f;
     private float timeElapsed=0;
     public GameObject Indicator;
     public MicSens Sensor;
